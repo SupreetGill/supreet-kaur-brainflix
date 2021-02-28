@@ -1,0 +1,47 @@
+
+@use './Variables.scss' as *;
+
+$tablet-breakpoint: 768px;
+$desktop-breakpoint : 1280px;
+
+$min-breakpoint:550px;
+$max-breakpoint:767px;
+
+$min-break:1050px;
+$max-break:1279px;
+
+$beyond-desktop:1450px;
+
+
+@mixin tablet {
+    @media screen and (min-width: $tablet-breakpoint) {
+      @content;
+    }
+  }
+  
+  @mixin desktop {
+    @media screen and (min-width: $desktop-breakpoint) {
+      @content;
+    }
+  }
+
+
+  @mixin mobile-bt-tablet{
+    @media (min-width:$min-breakpoint) and (max-width:$max-breakpoint){
+     @content;
+    }
+  }
+
+
+  @mixin tablet-bt-desktop{
+    @media (min-width:$min-break) and (max-width:$max-break){
+      @content;
+     }
+  }
+
+ 
+  @mixin desktop-up{
+    @media screen and (min-width: $beyond-desktop){
+      @content;
+    }
+  }

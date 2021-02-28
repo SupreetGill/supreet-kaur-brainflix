@@ -1,0 +1,58 @@
+@use '../../Partials/Variables.scss'as *;
+@use '../../Partials/mixins.scss' as *;
+@use '../../Partials/font-faces.scss' as *;
+
+
+.Comment{
+  display: flex;
+  // margin-bottom: 1rem;
+//  border:1px solid blue;
+ padding:2rem 0;
+ border-bottom:1px solid $mercury;
+
+    .Comment__image{
+     width:4.5rem;
+     height: 4.5rem;
+     border-radius:50%;
+     object-fit: cover;
+     margin-right:2rem;
+    }
+
+    .Comment__body{
+    flex:1;
+      @include tablet {
+        // width:62.4rem;
+      }
+    }
+
+    .Comment__author-info{
+     display: flex;
+     justify-content: space-between;
+     font-size: 1.6rem;
+     line-height: 2.4rem;
+     margin-bottom: 1rem;
+     @include tablet {
+       justify-content: end;
+     }
+    }
+
+
+    .Comment__name{
+    font-weight: 600;
+    @include tablet {
+      margin-right: 1rem;;
+    }
+    }
+
+
+    .Comment__date{
+    color:$silver;
+    }
+    .Comment__text{
+        font-size: 1.4rem;
+        line-height: 2.2rem;
+        @include tablet {
+          width:62.4rem;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+@use '../../Partials/Variables.scss' as *;
+@use '../../Partials/mixins.scss' as *;
+@use '../../Partials/font-faces.scss' as *;
+
+
+.Video{
+    display: flex;
+    // border:1px solid pink;
+    margin-bottom: 2.4rem;
+    
+
+    .Video__img{
+     width:12rem;
+     height:7rem;
+     margin-right: 1.6rem;
+     object-fit: cover;
+     border-radius: 0.5rem;
+     @include desktop{
+         height:7.9rem;
+     }
+   
+    }
+    .Video__info{
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+    @include tablet{
+        font-size:1.4rem;
+        line-height: 2.2rem;
+    }
+    
+    }
+    .Video__para{
+     font-weight: 700;
+     margin-bottom:1rem;
+     @include tablet {
+        //  border:1px solid black;
+         width:60%;
+         font-weight: 600;
+         @include desktop{
+             width:92%
+         }
+
+     }
+    }
+    .Video__author{
+        
+    }
+}

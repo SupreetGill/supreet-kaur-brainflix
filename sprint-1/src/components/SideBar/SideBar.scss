@@ -1,0 +1,23 @@
+@use '../../Partials/mixins.scss' as *;
+@use '../../Partials/Variables.scss' as *;
+// @use '../../Partials/font-faces.scss' as *;
+
+.Aside-section{
+  width:100%;
+  // border:1px solid blue;
+  @include desktop{
+    width:30%;
+  }
+  
+}
+
+.Aside-section__heading{
+        margin:4rem 0;
+        font-size: 1.6rem;
+        line-height: 2.4rem;
+        color:$silver;
+        font-weight: 600;
+        @include desktop{
+          margin-top:0;
+        }
+}
