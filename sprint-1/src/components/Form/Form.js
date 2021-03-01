@@ -6,21 +6,10 @@ class Form extends Component {
     state = {
     comment:''
     }
-
-//    handleSubmit = (e)=>{
-//    e.preventDefault();
-//    let commentObj = {
-//        comment: this.state.comment,
-//        id:11,
-//        name :"PreetiGill"
-//    }
-//    addcomment(commentObj)
-
-//    }
-
+ 
     UpdatedFormState = (e)=>{
-    e.preventDefault();
-    this.setState({ comment : e.target.value})
+        e.preventDefault();
+        this.setState({ comment : e.target.value})
     }
 
     render() {
@@ -39,8 +28,7 @@ class Form extends Component {
                             placeholder= "write comment here" 
                             id="" cols="30" rows="5"
                             onChange = {this.UpdatedFormState}
-                            >
-                         
+                            >   
                             </textarea>
                         </div>
                         <button className = "Highlights__form-button" type = "submit" >COMMENT</button>

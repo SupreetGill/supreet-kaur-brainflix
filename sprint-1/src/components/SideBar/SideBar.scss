@@ -4,20 +4,20 @@
 
 .Aside-section{
   width:100%;
-  // border:1px solid blue;
   @include desktop{
     width:30%;
+  }
+  &__heading{
+    margin:4rem 0;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    color:$silver;
+    font-weight: 600;
+    @include desktop{
+      margin-top:0;
+    }
   }
   
 }
 
-.Aside-section__heading{
-        margin:4rem 0;
-        font-size: 1.6rem;
-        line-height: 2.4rem;
-        color:$silver;
-        font-weight: 600;
-        @include desktop{
-          margin-top:0;
-        }
-}
+
