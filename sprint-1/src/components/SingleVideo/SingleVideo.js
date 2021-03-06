@@ -1,21 +1,25 @@
 
 import React from 'react';
 import './SingleVideo.scss';
+import {Link} from 'react-router-dom';
 
+//making changes ----lets c ..creating links
 
-
-function SingleVideo({filteredvideos,pickedVideo}) {
+function SingleVideo({filteredvideos}) {
     return (
         <>
             { filteredvideos.map(v =>{
+                // console.log(v.id)
                 return(
-                    <div key = {v.id} className = "Video">
-                        <img className = "Video__img" src= {v.image} alt="" onClick = {()=>{pickedVideo(v.id)}}/>
+                    <Link key = {v.id} to = {`/${v.id}`}>
+                    <div className = "Video">
+                        <img className = "Video__img" src= {v.image} alt="" />
                         <div className = "Video__info">
                             <p className = "Video__para">{v.title}</p>
                             <p className ="Video__author" >{v.channel}</p>
                         </div>
                     </div>
+                    </Link>
                     )
                 })
             }

@@ -2,12 +2,14 @@
 @use '../../Partials/mixins.scss' as *;
 // @use '../../Partials/font-faces.scss' as *;
 
-.Header{
+.nav{
     display:flex;
     flex-wrap: wrap;
+    justify-content: center;
     @include tablet{
         padding:1.6rem 2.4rem;
         align-items: center;
+        border-bottom: 1px solid $mercury;
     }
     @include desktop{
         padding:1.6rem 10rem;

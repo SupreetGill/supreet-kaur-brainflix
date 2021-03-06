@@ -3,22 +3,34 @@ import './Header.scss';
 import BrandLogo from '../../assets/images/Logo-brainflix.svg';
 import Pic from '../../assets/images/Mohan-muruge.jpg';
 import AddIcon from '@material-ui/icons/Add';
+import {Link} from 'react-router-dom';
 
 
 class Header extends Component {
+
+//     handleClick= (e)=>{
+//     //    e.preventDefault();
+//        <Link to = '/videoUpload'/>
+//       console.log("redirecting")
+//    }
+
+
     render() {
         return (
-            <header className = 'Header'> 
-                <img className = 'Header__logo' src = {BrandLogo} alt=""/>
-                <div className = 'Header__rt-side' >
-                    <form className = 'Header__form' action="">
-                        <input className = 'Header__form-input' type="text" name = "search" id = "search" placeholder = "Search"/>
-                        <div className = "Header__upload"> 
-                            <button className = "Header__upload-btn"><AddIcon className  = "Header__btn-svg" />UPLOAD</button>
-                            <img className = "Header__upload-pic"  src= {Pic}  alt=""/>
-                        </div> 
-                    </form>
-                </div>    
+            <header> 
+                <nav className = 'nav'>
+                    <Link to = '/' ><img className = 'nav__logo' src = {BrandLogo} alt=""/></Link>
+                    <div className = 'nav__rt-side' >
+                        <form className = 'nav__form' action="">
+                            <input className = 'nav__form-input' type="text" name = "search" id = "search" placeholder = "Search"/>
+                            <div className = "nav__upload"> 
+                            <Link to = '/videoUpload' onClick = {this.handleClick} className = "nav__upload-btn"><AddIcon className  = "nav__btn-svg" />UPLOAD</Link>
+                                <img className = "nav__upload-pic"  src= {Pic}  alt=""/>
+                            </div> 
+                        </form>
+                    </div> 
+                 </nav>
+                   
            </header>
         );
     }

@@ -6,13 +6,14 @@
     background-color:black;
     text-align: center;
     &__video-img{
-        @include width-height-objectfit(100%, 18.3rem);
+        @include width-height-objectfit(100%, 57vw);
+
         @include tablet {
-            @include width-height-objectfit(70rem, 40rem);
+            @include width-height-objectfit(70rem, 52vw);
         }
         @include desktop{
             width:94.4rem;
-            height:54rem;
+            height:42vw;
         }
     }
 }

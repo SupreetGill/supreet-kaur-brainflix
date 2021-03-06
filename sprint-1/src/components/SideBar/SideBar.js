@@ -4,12 +4,12 @@ import SingleVideo from'../SingleVideo/SingleVideo';
 import './SideBar.scss';
 
 
-function SideBar({filteredVideosArray,pickedVideo}) {
+function SideBar({filteredVideosArray}) {
 
     return (
         <aside className = "Aside-section">
             <h2 className = "Aside-section__heading">NEXT VIDEO</h2>
-            <SingleVideo filteredvideos = {filteredVideosArray} pickedVideo = {pickedVideo}/>
+            <SingleVideo filteredvideos = {filteredVideosArray} />
         </aside>
     );
 }

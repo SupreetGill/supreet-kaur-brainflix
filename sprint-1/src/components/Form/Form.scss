@@ -24,13 +24,15 @@
 }
 .Highlights__label-text-box{
     flex:1;
+    display: flex;
+    flex-direction:column;
 }
 .Highlights__form-heading{
     @include font-line-weight(1.3rem, 1.8rem, 600);
     color:$silver;
     @include tablet {
-        font-size:1.4rem;
-        line-height: 2.2rem;
+        // font-size:1.4rem;
+        // line-height: 2.2rem;
         margin-bottom: 0.8rem;
     }
 }   
@@ -39,8 +41,9 @@
     width:100%;
     resize:none;
     margin:1rem 0 1.6rem 0;
-    padding:1.5rem 1rem 0.5rem 1.5rem;
+    padding:1.3rem 1rem 1.3rem 1.5rem;
     font-family:'AvenirNext LT Pro' ;
+    border-radius:4px;
     @include tablet{
         height:5rem;
         margin-top:0;

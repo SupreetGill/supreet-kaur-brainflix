@@ -5,7 +5,16 @@ import './Comment.scss';
 
 
 
-function Comment({commentObj}) {
+function Comment({commentObj,selectedId,deleteComment}) {
+
+
+ const  handleDelete = (e)=>{
+    e.preventDefault();
+     const commentId = commentObj.id;
+     deleteComment(selectedId,commentId)
+    }
+
+
     
     let date = new Date(commentObj.timestamp).toLocaleDateString();
     return (
@@ -19,6 +28,7 @@ function Comment({commentObj}) {
                     </div>
                     <p className ="Comment__text">{commentObj.comment}</p>
                 </div>
+                <button onClick= {handleDelete}  >delete</button>
             </div>
         </div>   
     );

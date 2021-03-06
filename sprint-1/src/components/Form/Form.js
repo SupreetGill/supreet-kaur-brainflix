@@ -12,9 +12,19 @@ class Form extends Component {
         this.setState({ comment : e.target.value})
     }
 
+    handleSubmit=(e)=>{
+        const {selectedId,addComment}= this.props;
+        e.preventDefault();
+        const body = {
+            name: "Preeti Gill",
+            comment: e.target.comment.value
+        }
+        addComment(selectedId,body)
+    }
+
     render() {
         return (
-            <form className = "Highlights__form" action="">
+            <form  onSubmit = {this.handleSubmit}className = "Highlights__form" action="">
                 <img className = "Highlights__form-img" src= {Pic} alt=""/>     
                 <div className  = "Highlights__text-btn-box">
                     <div className = "Highlights__input-section">
@@ -27,6 +37,7 @@ class Form extends Component {
                             name = "comment" 
                             placeholder= "write comment here" 
                             id="" cols="30" rows="5"
+                            value ={this.state.comment}
                             onChange = {this.UpdatedFormState}
                             >   
                             </textarea>

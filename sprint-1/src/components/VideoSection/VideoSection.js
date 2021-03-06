@@ -8,7 +8,7 @@ import './VideoSection.scss';
 
 
 
-function VideoSection({isSelected}) {
+function VideoSection({isSelected,addComment,deleteComment}) {
     
     const commentsArray = isSelected.comments;
 
@@ -18,7 +18,7 @@ function VideoSection({isSelected}) {
                  <div className = "Highlights__video-info">
 
                      <div className = "Highlights__author">
-                         <span className ="Highlights__author-name" >{isSelected.channel}</span>
+                         <span className ="Highlights__author-name" >{`By ${isSelected.channel}`}</span>
                          <span className = "Highlights__author-date">12/18/2018</span>
                      </div>
 
@@ -39,9 +39,9 @@ function VideoSection({isSelected}) {
                  <h2 className = "Highlights__comment-count">{isSelected.comments.length} Comments</h2>
                  <div className = "Highlights__comment-section" >
   
-                <Form />
+                <Form addComment = {addComment} selectedId = {isSelected.id}/>
                 {
-                commentsArray.map( commentObj => <Comment key = {commentObj.id} commentObj = {commentObj} />)     
+                commentsArray.map( commentObj => <Comment key = {commentObj.id} commentObj = {commentObj} selectedId = {isSelected.id} deleteComment = {deleteComment}/>)     
                 } 
                  </div>
             </div>

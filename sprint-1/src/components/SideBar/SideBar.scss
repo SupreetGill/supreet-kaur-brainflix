@@ -6,11 +6,12 @@
   width:100%;
   @include desktop{
     width:30%;
+    padding-top: 4rem;
   }
   &__heading{
     margin:4rem 0;
-    font-size: 1.6rem;
-    line-height: 2.4rem;
+    font-size: 1.4rem;
+    line-height: 2.2rem;
     color:$silver;
     font-weight: 600;
     @include desktop{
