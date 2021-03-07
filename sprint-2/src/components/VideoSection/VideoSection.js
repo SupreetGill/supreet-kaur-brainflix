@@ -39,9 +39,9 @@ function VideoSection({isSelected,addComment,deleteComment}) {
                  <h2 className = "Highlights__comment-count">{isSelected.comments.length} Comments</h2>
                  <div className = "Highlights__comment-section" >
   
-                <Form addComment = {addComment} selectedId = {isSelected.id}/>
+                <Form addComment = {addComment} selectedVideoId = {isSelected.id}/>
                 {
-                commentsArray.map( commentObj => <Comment key = {commentObj.id} commentObj = {commentObj} selectedId = {isSelected.id} deleteComment = {deleteComment}/>)     
+                commentsArray.map( commentObj => <Comment key = {commentObj.id} commentObj = {commentObj} selectedVideoId = {isSelected.id} deleteComment = {deleteComment}/>)     
                 } 
                  </div>
             </div>

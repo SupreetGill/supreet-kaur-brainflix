@@ -6,17 +6,15 @@ import DeleteIcon from '@material-ui/icons/Delete';
 
 
 
-function Comment({commentObj,selectedId,deleteComment}) {
+function Comment({commentObj,selectedVideoId,deleteComment}) {
 
 
  const  handleDelete = (e)=>{
     e.preventDefault();
      const commentId = commentObj.id;
-     deleteComment(selectedId,commentId)
+     deleteComment(selectedVideoId,commentId)
     }
-
-
-    
+   
     let date = new Date(commentObj.timestamp).toLocaleDateString();
     return (
         <div>
@@ -29,7 +27,6 @@ function Comment({commentObj,selectedId,deleteComment}) {
                     </div>
                     <p className ="Comment__text">{commentObj.comment}</p>
                 </div>
-                {/* <button className = "Comment__delete" onClick= {handleDelete}  >delete</button> */}
                 <DeleteIcon className = "Comment__delete" onClick= {handleDelete} />
             </div>
         </div>   

@@ -3,13 +3,10 @@ import React from 'react';
 import './SingleVideo.scss';
 import {Link} from 'react-router-dom';
 
-//making changes ----lets c ..creating links
-
 function SingleVideo({filteredvideos}) {
     return (
         <>
             { filteredvideos.map(v =>{
-                // console.log(v.id)
                 return(
                     <Link key = {v.id} to = {`/${v.id}`}>
                     <div className = "Video">

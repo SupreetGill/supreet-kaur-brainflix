@@ -42,11 +42,12 @@
     }
   }
   &__delete{
-    cursor: pointer;
-   
+    cursor: pointer; 
   }
   .MuiSvgIcon-root {
-  font-size: 1.6rem;
+  font-size: 2rem;
   line-height: 2.2rem;
+  margin-right:4rem;
+  margin-top: 2rem;
   }
 }

@@ -7,14 +7,6 @@ import {Link} from 'react-router-dom';
 
 
 class Header extends Component {
-
-//     handleClick= (e)=>{
-//     //    e.preventDefault();
-//        <Link to = '/videoUpload'/>
-//       console.log("redirecting")
-//    }
-
-
     render() {
         return (
             <header> 

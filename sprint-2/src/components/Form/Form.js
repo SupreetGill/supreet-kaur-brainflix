@@ -13,30 +13,23 @@ class Form extends Component {
     }
 
     handleSubmit=(e)=>{
-        const {selectedId,addComment}= this.props;
         e.preventDefault();
+        const {selectedVideoId,addComment}= this.props;
         const body = {
             name: "Preeti Gill",
             comment: e.target.comment.value
-        }
-        
+        }       
         if(!e.target.comment.value){
             alert('add a comment')
-            // return;
-        }else{
-          
-            addComment(selectedId,body)
-          
-           this.setState({
+        }else{    
+            addComment(selectedVideoId,body)       
+            this.setState({
                comment: ''
            })
-        }
-        
+        }     
     }
 
     render() {
-        // add form validation
-
         return (
             <form  onSubmit = {this.handleSubmit}className = "Highlights__form" action="">
                 <img className = "Highlights__form-img" src= {Pic} alt=""/>     
@@ -44,7 +37,6 @@ class Form extends Component {
                     <div className = "Highlights__input-section">
                         <div className ="Highlights__label-text-box" >
                             <p className ="Highlights__form-heading" >JOIN THE CONVERSATION</p>
-
                             <textarea 
                             className = "Highlights__form-input" 
                             type="text" 

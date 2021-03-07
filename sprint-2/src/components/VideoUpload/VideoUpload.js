@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import cycle from '../../assets/images/Upload.jpg';
 import './VideoUpload.scss';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 class VideoUpload extends Component {
 
    handleClick=()=>{
-       alert("video uploaded")
-      
+       alert("video uploaded")    
    }
 
     render() {
@@ -32,7 +31,7 @@ class VideoUpload extends Component {
                 </form> 
                 <div className ="upload__form-div upload__form-div--flex">
                         <Link to = '/' className = "upload__btn" onClick = { this.handleClick}>PUBLISH</Link>
-                        <a className = "upload__cancel-link">CANCEL</a>
+                        <a href = "#"className = "upload__cancel-link">CANCEL</a>
                 </div>    
             </section>
         );
@@ -41,4 +40,3 @@ class VideoUpload extends Component {
 
 export default VideoUpload;
 
-//<Route path = '/:videoUpload' 
