@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import cycle from '../../assets/images/Upload.jpg';
 import './VideoUpload.scss';
+import {Link, Redirect} from 'react-router-dom';
 
 class VideoUpload extends Component {
+
+   handleClick=()=>{
+       alert("video uploaded")
+      
+   }
+
     render() {
         return (
             <section className = "upload"> 
@@ -24,7 +31,7 @@ class VideoUpload extends Component {
                     </div>  
                 </form> 
                 <div className ="upload__form-div upload__form-div--flex">
-                        <a className = "upload__btn">PUBLISH</a>
+                        <Link to = '/' className = "upload__btn" onClick = { this.handleClick}>PUBLISH</Link>
                         <a className = "upload__cancel-link">CANCEL</a>
                 </div>    
             </section>

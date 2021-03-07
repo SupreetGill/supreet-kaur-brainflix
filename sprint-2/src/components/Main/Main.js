@@ -11,20 +11,31 @@ import axios from 'axios';
 
 
 class Main extends Component {
-
+    
+ 
     state = {
         videos:null,
-        selected: null
+        selected: null,
+        
         }
 
+
+   isDataLoadedById = false;
+        
 addComment = (videoId, dataBody)=>{
+ 
+
+  // axios.post(url[, data[, config]])
+
+//### POST `/videos/:id/comment
   axios.post(`https://project-2-api.herokuapp.com/videos/${videoId}/comments?api_key=8c856934-9efb-4dad-8731-6b31f98a09a2`,dataBody)
   .then((res=>{
-    const updatedId = res.data
-    console.log(updatedId)
-   const videoIdUpdated = this.props.match.params.videoId;
+    // const updatedId = res.data
+    // console.log(updatedId)
+
+  //  const videoIdUpdated = this.props.match.params.videoId;
   //  console.log(videoConcerned)
-    axios.get(`https://project-2-api.herokuapp.com/videos/${videoIdUpdated}?api_key=8c856934-9efb-4dad-8731-6b31f98a09a2`)
+    axios.get(`https://project-2-api.herokuapp.com/videos/${videoId}?api_key=8c856934-9efb-4dad-8731-6b31f98a09a2`)
     .then((res=>{
       const newSelected = res.data;
       this.setState({
@@ -36,12 +47,13 @@ addComment = (videoId, dataBody)=>{
 }
 
 //DELETE `/videos/:videoId/comments/:commentId`
+
 deleteComment = (videoId,commentId)=>{
   axios.delete(`https://project-2-api.herokuapp.com/videos/${videoId}/comments/${commentId}?api_key=8c856934-9efb-4dad-8731-6b31f98a09a2`)
   .then((res=>{
-    const videoIdUpdated = this.props.match.params.videoId;
+    // const videoIdUpdated = this.props.match.params.videoId;
     //  console.log(videoConcerned)
-      axios.get(`https://project-2-api.herokuapp.com/videos/${videoIdUpdated}?api_key=8c856934-9efb-4dad-8731-6b31f98a09a2`)
+      axios.get(`https://project-2-api.herokuapp.com/videos/${videoId}?api_key=8c856934-9efb-4dad-8731-6b31f98a09a2`)
       .then((res=>{
         const newSelected = res.data;
         this.setState({
@@ -91,6 +103,8 @@ componentDidUpdate(prevProps){
     // console.log(currVideoId);
     
     if(prevProps.match.params.videoId !== currVideoId && currVideoId !== undefined){
+        this.isDataLoadedById = true;
+
         axios.get(`https://project-2-api.herokuapp.com/videos/${currVideoId}?api_key=8c856934-9efb-4dad-8731-6b31f98a09a2`)
         .then(res=>{
            const video =res.data ;
@@ -98,41 +112,29 @@ componentDidUpdate(prevProps){
                 selected : video
             })
             console.log(11)
-            
         })
     }
 
-  
-    //   const id = this.state.videos[0].id;
-      
-    //   axios.get(`https://project-2-api.herokuapp.com/videos/${id}?api_key=8c856934-9efb-4dad-8731-6b31f98a09a2`)
-    //   .then(res=>{
-    //    const singleData = res.data;
-    //    this.setState({
-    //     selected: singleData
-    //    })
-    //   })
-    // }
+    if((currVideoId === undefined || currVideoId == '') && this.isDataLoadedById === true){
+      this.isDataLoadedById = false;
+      console.log('another if statement');
+
+      const id = this.state.videos[0].id;
+      axios.get(`https://project-2-api.herokuapp.com/videos/${id}?api_key=8c856934-9efb-4dad-8731-6b31f98a09a2`)
+        .then(res=>{
+           const singleData =res.data ;
+            this.setState({
+                selected : singleData
+            })
+        })
+    }
     
 }
 
-//  mainRoute = ()=>{
-//   if (this.props.location.pathname === '/'){
-//     const movieId= this.state.videos[0].id;
-//      axios.get(`https://project-2-api.herokuapp.com/videos/${movieId}?api_key=8c856934-9efb-4dad-8731-6b31f98a09a2`)
-//      .then(res=>{
-//       //  console.log(res.data)
-//        const SelectedVideo = res.data;
-      
-//        this.setState({
-//          selected : SelectedVideo
-//        })
-//      })
-//    }
-//  }
+
 
     render() {
-  console.log(this.props.location)
+    // console.log(this.props.location)
     const {videos,selected} = this.state;
     // console.log(videos)
 

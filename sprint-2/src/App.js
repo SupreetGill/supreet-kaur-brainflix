@@ -21,7 +21,7 @@ class App extends Component {
               <Switch>
                 <Route exact path = '/' render = {(routeProps)=> <Main  {...routeProps} />} />
                 <Route exact path = '/videoUpload'  render = {(routeProps)=> <VideoUpload {...routeProps} />}/>
-                <Route  path = '/:videoId'  render = {(routeProps)=> <Main  {...routeProps}/>} />
+                <Route exact path = '/:videoId'  render = {(routeProps)=> <Main  {...routeProps}/>} />
                
               </Switch>
             </BrowserRouter>

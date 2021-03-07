@@ -19,14 +19,19 @@ class Form extends Component {
             name: "Preeti Gill",
             comment: e.target.comment.value
         }
-        // if(!this.state.comment){
-        //     return false;
-        // }
-        addComment(selectedId,body)
-        //lets c
-       this.setState({
-           comment: ''
-       })
+        
+        if(!e.target.comment.value){
+            alert('add a comment')
+            // return;
+        }else{
+          
+            addComment(selectedId,body)
+          
+           this.setState({
+               comment: ''
+           })
+        }
+        
     }
 
     render() {
