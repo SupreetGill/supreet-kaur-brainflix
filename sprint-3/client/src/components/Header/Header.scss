@@ -1,0 +1,120 @@
+@use '../../Partials/Variables.scss' as *;
+@use '../../Partials/mixins.scss' as *;
+// @use '../../Partials/font-faces.scss' as *;
+
+.nav{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include tablet{
+        padding:1.6rem 2.4rem;
+        align-items: center;
+        border-bottom: 1px solid $mercury;
+    }
+    @include desktop{
+        padding:1.6rem 10rem;
+    }
+    &__logo{
+        height: 2.4rem;
+        margin:1.2rem auto;
+        @include tablet{
+        margin:0 16.9rem 0 0;
+        }
+        @include desktop {
+            margin:0 50.9rem 0 0;
+        }
+    }
+    &__rt-side{
+        @include flex-wrap-margin;
+        flex-basis:90%;
+        @include tablet{
+            flex:1;
+            margin:0;
+        }
+
+    }
+    &__form{
+        flex-basis:100%;
+        @include tablet{
+            flex:1;
+            display: flex;
+            margin-right:2.4rem;
+        }
+    }
+    &__form-input{
+        background-color: $alabaster;
+        @include font-line-weight(1.6rem,2.4rem, 400);
+        font-family: 'AvenirNext LT Pro';
+        @include display-width-height-margin(block,100%,4rem,auto);
+        background-image: url('../../assets/images/Icon-search.svg');
+        background-size:20px;
+        background-repeat: no-repeat;
+        padding:0.5rem 0 0.5rem 4rem;
+        background-position: 1.5rem ;
+        font-style: normal;
+        border-radius:5px;
+        border:1px solid $mercury;
+    
+  
+        @include tablet{
+         height:100%;
+         margin-right:2.4rem;
+         border-radius: 0.5rem;
+         font-size: 1.8rem;
+         line-height: 2.4rem;
+         padding:0.5rem 0 0.5rem 5rem;
+         background-size:2.3rem;
+         border:1px solid $silver;
+        }
+    }
+    &__upload{
+        display: flex;
+        width:100%;
+        align-items: center;
+        margin:0.8rem 0 1.6rem 0;
+        @include tablet{
+            margin:0 ;   
+        }
+    }
+    &__upload-btn{
+        flex: 1;
+        @include flex-align-justify(center ,center);
+        @include font-line-weight(1.4rem,2.2rem, 600);
+        font-family: 'AvenirNext LT Pro';
+        background:$blue-secondary;
+        color: $white; 
+     
+        padding:1rem;
+        border-radius:0.5rem;
+        border:none;   
+        
+   
+        font-style: normal; 
+        &:hover{
+            background-color: $blue-primary;
+        }
+        @include tablet {
+            max-width:23rem;
+        }
+
+
+    }
+    &__btn-svg{
+        margin-right:1rem;
+        @include tablet{
+            font-size: 2.4rem;
+            margin-right:0.5rem;
+        }
+    }
+    &__upload-pic{
+        @include width-height-objectfit(4.5rem, 4.5rem);
+        border-radius: 50%;
+        margin-left: 1.6rem;
+        @include tablet{
+            margin-left:2.4rem;
+        }
+    }
+}
+
+
+

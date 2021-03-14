@@ -1,0 +1,102 @@
+@use '../../Partials/Variables.scss' as *;
+@use '../../Partials/mixins.scss' as *;
+// @use '../../Partials/font-faces.scss' as *;
+
+.Highlights__right{
+    @include desktop {
+        width:68%;
+        border-right:1px solid $mercury;
+        padding-top: 4rem;
+    }
+}
+.Highlights__title{
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    @include tablet{
+        font-size:3.6rem;
+        line-height:4.4rem;
+    } 
+}
+.Highlights__video-info{
+  @include tablet {
+    display: flex;
+    border-bottom:1px solid $silver;
+  }
+}
+.Highlights__author{
+    margin:1.6rem 0 3.2rem 0;
+    font-size: 1.4rem;
+    line-height:2.2rem ;
+    @include tablet{
+        margin:2.4rem 0;
+    }
+    @include tablet {
+        flex:1;
+        font-size: 1.6rem;
+        line-height:2.4rem ;
+    }
+}
+.Highlights__views-likes-box{
+   display: flex; 
+   border-bottom:1px solid $mercury;
+   padding-bottom:2.4rem;
+   @include desktop{
+       margin-right:3.2rem;
+   }
+}
+.Highlights__author-name{
+    margin-right:1rem;
+    font-weight: 700;
+}
+.Highlights__author-date{
+    color:$silver;
+}
+.Highlights__popularity{
+margin-right:2.4rem;
+display: flex;
+    @include tablet {
+        align-items: center;
+        margin-right: 0;
+    }
+}
+.Highlights__popularity--margin{
+    @include tablet{
+        margin-right:2.4rem;
+    }
+}
+.Highlights__icon{
+    margin-right:0.8rem;
+    @include tablet{
+        height:1.8rem;
+    }  
+}
+.Highlights__number{
+    @include font-line-weight(1.4rem, 2.2rem, 600);
+    @include tablet {
+        flex:1;
+        font-weight:400;
+    }
+}
+.Highlights__para{
+    margin: 2.4rem 0 4rem 0;
+    font-size:1.4rem;
+    line-height: 2.2rem;
+    @include tablet {
+        margin:4rem 0 6.4rem;
+    }
+    @include desktop{
+        width:82%;
+    }
+}
+.Highlights__comment-count{
+    @include font-line-weight(1.8rem,2.4rem, 600);
+    letter-spacing: 0.1rem;
+    margin-bottom:3.2rem;
+}
+
+
+
+
+
+
+

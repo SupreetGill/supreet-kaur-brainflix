@@ -1,0 +1,159 @@
+@use '../../Partials/mixins.scss' as *;
+@use '../../Partials/Variables.scss' as *;
+
+
+.upload{
+    padding:0 1.6rem;
+    @include tablet{
+        padding:0 2.4rem;
+    }
+    @include desktop{
+        padding: 0 10rem;
+    }
+    &__heading{
+        font-size:2.4rem;
+        line-height: 3.2rem;
+        margin-top:2.4rem;
+        @include tablet{
+            font-size:3.6rem;
+            line-height: 4.4rem;
+            border-bottom:1px solid $mercury;
+            margin-top:4.8rem;
+            padding-bottom:3.2rem;
+        }
+    }   
+    .upload-controller{
+        @include desktop{
+            width: 100%;
+            display: flex;
+            border-bottom: 1px solid $mercury;
+            padding-bottom: 4rem;
+        }
+    }     
+    &__form{
+        @include desktop{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+    }       
+    &__form-div{
+        margin-top:3.2rem;
+        @include tablet {
+            margin-top:4rem;
+        }
+    }      
+    &__label{
+        font-size:1.3rem;
+        line-height: 1.8rem;
+        font-weight: 600;
+        color:$silver;
+        margin-bottom:0.5rem;
+        display: block;
+    }    
+    &__thumbnail{
+        width:28.8rem;
+        height:48vw;
+        object-fit: cover;
+        border-radius: 4px;
+        @include tablet{
+            width:34.4rem;
+            height:24vw;
+        }
+        @include desktop{
+            width: 34.4rem;
+            height: 14.4vw;
+        }
+    }
+    &__flex{
+        @include desktop{
+            flex: 1;
+            margin-left: 2.4rem;
+        }
+    }      
+    &__input{
+        width:100%;
+        padding:1rem;
+        resize: none;
+        border-radius: 4px;
+        font-size:1.4rem ;
+        line-height: 2.2rem;
+        font-family: 'AvenirNext LT Pro';
+        border:1px solid $mercury;  
+        &::placeholder{
+            font-size:1.4rem ;
+            line-height: 2.2rem;
+            font-family: 'AvenirNext LT Pro';
+            color:black;
+        }
+    }      
+    &__form-div--margin{
+        margin-top:2.4rem;
+    }       
+    &__input--height{
+        @include desktop{
+            height: 7.3vw;
+        }
+    }
+    &__form-div--flex{
+        @include tablet {
+            display: flex;
+            justify-content: flex-end;
+            // border-top: 1px solid $mercury;
+            // padding-top: 4rem;
+        }  
+        @include desktop{
+            border-top: none;
+            padding-top: 0rem;  
+        }     
+    }     
+    &__btn{
+        font-size: 1.4rem;
+        line-height: 2.2rem;
+        font-weight: 600;
+        font-family: "AvenirNext LT Pro";
+        background: #0095FF;
+        color: #FFFFFF;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border: none;
+        font-style: normal;
+        width:100%;
+        display: block;
+        text-align: center;
+        @include tablet{
+            order:1;
+            width:16rem;
+            max-width:16rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }      
+    &__cancel-link{
+        font-size: 1.4rem;
+        line-height: 2.2rem;
+        font-weight: 600;
+        font-family: "AvenirNext LT Pro";
+        background: #0095FF;
+        color: #FFFFFF;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border: none;
+        font-style: normal;
+        width:100%;
+        display: block;
+        text-align: center;
+        color:#0095FF;
+        background-color: $white;
+        margin-top:2.4rem;
+        @include tablet{
+            width:16rem;
+            max-width:16rem;
+            margin-top: 0;
+        }     
+    }       
+}
+
+
+

@@ -1,0 +1,53 @@
+@use '../../Partials/Variables.scss'as *;
+@use '../../Partials/mixins.scss' as *;
+@use '../../Partials/font-faces.scss' as *;
+
+
+.Comment{
+  display: flex;
+  padding:2rem 0;
+  border-bottom:1px solid $mercury;
+  &__image{
+    @include width-height-objectfit(4.5rem, 4.5rem);
+    border-radius:50%;
+    margin-right:2rem;
+  }
+  &__body{
+    flex:1;
+  }
+  &__author-info{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    margin-bottom: 1rem;
+      @include tablet {
+        justify-content: end;
+      }
+  }
+  &__name{
+    font-weight: 600;
+    @include tablet {
+      margin-right: 1rem;;
+    }
+  }
+  &__date{
+    color:$silver;
+  }
+  &__text{
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+    @include tablet {
+      width:62.4rem;
+    }
+  }
+  &__delete{
+    cursor: pointer; 
+  }
+  .MuiSvgIcon-root {
+  font-size: 2rem;
+  line-height: 2.2rem;
+  margin-right:4rem;
+  margin-top: 2rem;
+  }
+}

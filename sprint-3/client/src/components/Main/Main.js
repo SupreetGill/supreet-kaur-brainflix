@@ -20,9 +20,9 @@ class Main extends Component {
 
 //### POST `/videos/:id/comment       
 addComment = (videoId, commentBody)=>{
-  axios.post(`https://project-2-api.herokuapp.com/videos/${videoId}/comments?api_key=dbb79613-2994-442c-8777-27d0e4e1d2c8`,commentBody)
+  axios.post(`http://localhost:8080/videos/${videoId}/comments`,commentBody)
   .then((res=>{
-    axios.get(`https://project-2-api.herokuapp.com/videos/${videoId}?api_key=dbb79613-2994-442c-8777-27d0e4e1d2c8`)
+    axios.get(`http://localhost:8080/videos/${videoId}`)
     .then((res=>{
       const selectedVideo = res.data;
       this.setState({
@@ -36,9 +36,9 @@ addComment = (videoId, commentBody)=>{
 //DELETE `/videos/:videoId/comments/:commentId`
 
 deleteComment = (videoId,commentId)=>{
-  axios.delete(`https://project-2-api.herokuapp.com/videos/${videoId}/comments/${commentId}?api_key=dbb79613-2994-442c-8777-27d0e4e1d2c8`)
+  axios.delete(`http://localhost:8080/videos/${videoId}/comments/${commentId}`)
   .then((res=>{
-      axios.get(`https://project-2-api.herokuapp.com/videos/${videoId}?api_key=dbb79613-2994-442c-8777-27d0e4e1d2c8`)
+      axios.get(`http://localhost:8080/videos/${videoId}`)
       .then((res=>{
         const newSelectedVideo = res.data;
         this.setState({
@@ -51,8 +51,9 @@ deleteComment = (videoId,commentId)=>{
 
  componentDidMount(){
  
-   axios.get("https://project-2-api.herokuapp.com/videos?api_key=dbb79613-2994-442c-8777-27d0e4e1d2c8")
+   axios.get('http://localhost:8080/videos')
    .then(res=>{
+    //  console.log(res.data)
      const videosArray = res.data;
      this.setState({
        videos :videosArray
@@ -67,7 +68,7 @@ deleteComment = (videoId,commentId)=>{
       id = selectedId
     }
 
-     axios.get(`https://project-2-api.herokuapp.com/videos/${id}?api_key=dbb79613-2994-442c-8777-27d0e4e1d2c8`)
+     axios.get(`http://localhost:8080/videos/${id}`)
      .then(res=>{
        const SelectedVideo = res.data;
        this.setState({
@@ -81,13 +82,8 @@ deleteComment = (videoId,commentId)=>{
 
 
 componentDidUpdate(prevProps){
-    
-    // console.log(currVideoId)
-    // console.log(prevProps.match.params.videoId)
     const currVideoId = this.props.match.params.videoId;
     if(prevProps.match.params.videoId !== currVideoId ){
-
-  
 
     const defaultId = this.state.videos[0].id;
 
@@ -99,7 +95,7 @@ componentDidUpdate(prevProps){
       id = currVideoId
     }
 
-        axios.get(`https://project-2-api.herokuapp.com/videos/${id}?api_key=dbb79613-2994-442c-8777-27d0e4e1d2c8`)
+        axios.get(`http://localhost:8080/videos/${id}`)
         .then(res=>{
            const videoSelected =res.data ;
             this.setState({
