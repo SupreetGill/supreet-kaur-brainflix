@@ -17,6 +17,17 @@ class Main extends Component {
 
 
 
+//inc video likes
+incLikes = (videoId)=>{
+axios
+  .put(`http://localhost:8080/videos/${videoId}/likes`)
+  .then(res=>{
+    this.setState({
+      selected: res.data
+    })
+  })
+}
+
 
 //### POST `/videos/:id/comment       
 addComment = (videoId, commentBody)=>{
@@ -53,7 +64,6 @@ deleteComment = (videoId,commentId)=>{
  
    axios.get('http://localhost:8080/videos')
    .then(res=>{
-    //  console.log(res.data)
      const videosArray = res.data;
      this.setState({
        videos :videosArray
@@ -119,7 +129,7 @@ componentDidUpdate(prevProps){
                 <Hero isSelected = {selected}/>
                 <section className = "Highlights">
                     <div className ="Highlights__main" >
-                        <VideoSection isSelected = {selected}  addComment = {this.addComment} deleteComment = {this.deleteComment}/>
+                        <VideoSection incLikes = {this.incLikes} isSelected = {selected}  addComment = {this.addComment} deleteComment = {this.deleteComment}/>
                         <SideBar filteredVideosArray = {filteredArr} isSelected = {selected} />        
                     </div> 
                 </section>

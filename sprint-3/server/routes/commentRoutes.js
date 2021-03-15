@@ -19,14 +19,12 @@ router.post('/videos/:videoId/comments',(req,res)=>{
    const commentsArr = videoPicked.comments
    commentsArr.push(commentBody)
 
-   // filer  ..+ push updated video obj
    const updatedVideosArr = parsedVideos.filter(v=> v.id!==req.params.videoId);
    updatedVideosArr.push(videoPicked)
 
    fs.writeFileSync("./data/video.json", JSON.stringify(updatedVideosArr));
    res.status(200).json(commentBody)
 })
-
 
 
 //DELETE /videos/:videoId/comments/:commentId f
@@ -42,8 +40,7 @@ router.delete('/videos/:videoId/comments/:commentId',(req, res)=>{
     //new commentArr ->after deleting the comment
     const updatedCommArr= commentsArr.filter(c=> c.id!== req.params.commentId);
     videoPicked.comments = updatedCommArr;
-    // commentsArr.push(updatedCommArr);
-
+   
     const latestvideoArr=  parsedVideos.filter(v=> v.id!==req.params.videoId);
     latestvideoArr.push(videoPicked);
 

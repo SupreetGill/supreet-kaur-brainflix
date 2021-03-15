@@ -8,9 +8,14 @@ import './VideoSection.scss';
 
 
 
-function VideoSection({isSelected,addComment,deleteComment}) {
+function VideoSection({isSelected,addComment,deleteComment,incLikes}){
     
     const commentsArray = isSelected.comments;
+
+    const handleLikes=()=>{
+        incLikes(isSelected.id)
+    }
+
 
     return (
         <div className = "Highlights__right">
@@ -28,7 +33,7 @@ function VideoSection({isSelected,addComment,deleteComment}) {
                              <span className = "Highlights__number">{isSelected.views}</span>
                          </div>
 
-                         <div className = "Highlights__popularity">
+                         <div onClick = {handleLikes} className = "Highlights__popularity">
                              <img className = "Highlights__icon"src= {Likes} alt=""/>
                              <span className = "Highlights__number">{isSelected.likes}</span>
                          </div>

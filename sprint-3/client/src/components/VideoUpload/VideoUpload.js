@@ -28,6 +28,10 @@ handleSubmit = (e)=>{
         title: this.state.title,
         description: this.state.description
     }
+    if(!newVideo.title || !newVideo.description){
+        alert ('Both the fields are required')
+        return false;
+    }
     axios
     .post('http://localhost:8080/videos',newVideo)
     .then(res=>{
@@ -80,7 +84,6 @@ handleSubmit = (e)=>{
                     </div>  
                 </div>
                 <div className ="upload__form-div upload__form-div--flex">
-                     {/* <Link to = '/' className = "upload__btn" >PUBLISH</Link> */}
                      <button type = "submit" className = "upload__btn" >PUBLISH</button>
                      <a href = "#"className = "upload__cancel-link">CANCEL</a>
                     </div>  

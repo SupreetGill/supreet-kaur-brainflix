@@ -1,38 +1,32 @@
 
+
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const uniqid = require('uniqid');
 
-const incLikes =(likes)=>{
-    return likes + 1;
-}
 
 router.get('/',(req, res)=>{
     const videos = fs.readFileSync('./data/video.json');
     const parsedVideos = JSON.parse(videos);
-    // console.log(`from get request 🎨${parsedVideos}`)
     res.status(200).json(parsedVideos)
 });
 
 router.get('/:videoId',(req,res)=>{
     const videos = fs.readFileSync('./data/video.json');
     const parsedVideos = JSON.parse(videos);
-    // const videoId = req.params.videoId
     const pickedVideo =parsedVideos.find(video=> video.id===req.params.videoId);
     res.status(200).json(pickedVideo)
-    // console.log(pickedVideo)
 })
 
 router.post('/', (req, res)=>{
     const videos = fs.readFileSync('./data/video.json');
     const parsedVideos = JSON.parse(videos);
-    // console.log(`is this parsed one🧘‍♂️${parsedVideos}`)
     const getTime = new Date().getTime()
    const newVideo = {
         id: uniqid(),
         title: req.body.title,
-        channel: 'Radio mirchi',
+        channel: 'Supreet Gill',
         image: 'http://localhost:8080/Upload.jpg',
         description: req.body.description,
         views: '1,001,023',
@@ -53,21 +47,22 @@ router.post('/', (req, res)=>{
     fs.writeFileSync("./data/video.json", JSON.stringify(parsedVideos));
 
     res.status(200).json(newVideo)
-    // console.log(parsedVideos)
 })
 
 //Implement a PUT endpoint at /videos/:videoId/likes that increments
-// the like count of the video specified by video.
 
 router.put('/:videoId/likes',(req,res)=>{
     const videos = fs.readFileSync('./data/video.json');
     const parsedVideos = JSON.parse(videos);
   
    const likedVideo = parsedVideos.find(video=>video.id===req.params.videoId);
-   const videoLikes = likedVideo.likes;
-   incLikes(videoLikes);
-   res.send(parsedVideos)
+   likedVideo.likes = (parseInt(likedVideo.likes) + 1).toString();
 
+   const updatedVideo = parsedVideos.filter(video=> video.id!==req.params.videoId);
+   updatedVideo.push(likedVideo);
+
+   fs.writeFileSync('./data/video.json', JSON.stringify(parsedVideos));
+   res.status(200).json(likedVideo)
 })
 
 
